@@ -35,8 +35,7 @@ namespace CityInfo.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PointOfInterestDto>>> GetPointsOfInterest(
-            int cityId)
+        public async Task<ActionResult<IEnumerable<PointOfInterestDto>>> GetPointsOfInterest(int cityId)
         {
 
             //var cityName = User.Claims.FirstOrDefault(c => c.Type == "city")?.Value;
@@ -84,6 +83,12 @@ namespace CityInfo.API.Controllers
            int cityId,
            PointOfInterestForCreationDto pointOfInterest)
         {
+            // It is assumed that the pointOfInterest parameter comes from the request body, 
+            // but notice the cityId comes from the route
+
+            //Note: this code is different from the code in module (I'm not sure what module, as I cannot see that
+            //using the Pluralsight Offline App :(
+
             if (!await _cityInfoRepository.CityExistsAsync(cityId))
             {
                 return NotFound();

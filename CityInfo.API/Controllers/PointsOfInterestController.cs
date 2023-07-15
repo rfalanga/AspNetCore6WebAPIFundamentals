@@ -83,7 +83,7 @@ namespace CityInfo.API.Controllers
            int cityId,
            PointOfInterestForCreationDto pointOfInterest)
         {
-            // It is assumed that the pointOfInterest parameter comes from the request body, 
+            // It is assumed that the pointOfInterest parameter comes from the request body which is assumed in this case, 
             // but notice the cityId comes from the route
 
             //Note: this code is different from the code in module (I'm not sure what module, as I cannot see that

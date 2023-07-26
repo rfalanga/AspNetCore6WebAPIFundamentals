@@ -16,8 +16,8 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
-//builder.Logging.ClearProviders();
-//builder.Logging.AddConsole();
+//builder.Logging.ClearProviders(); 
+//builder.Logging.AddConsole();     //this gives us access to the logging builder with the builder.logging
 
 builder.Host.UseSerilog();
 

@@ -25,7 +25,7 @@ namespace CityInfo.API.Controllers
             IMapper mapper)
         {
             _logger = logger ?? 
-                throw new ArgumentNullException(nameof(logger));
+                throw new ArgumentNullException(nameof(logger));    // Kevin (the author) still puts this null check in, because other types might be passed
             _mailService = mailService ?? 
                 throw new ArgumentNullException(nameof(mailService));
             _cityInfoRepository = cityInfoRepository ?? 

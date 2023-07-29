@@ -9,17 +9,17 @@ using Serilog;
 using System.Reflection;
 using System.Text;
 
-Log.Logger = new LoggerConfiguration()
+Log.Logger = new LoggerConfiguration()  // This is Serilog.Log
     .MinimumLevel.Debug()
-    .WriteTo.Console()
-    .WriteTo.File("logs/cityinfo.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Console()  // Here we state we want to log to the Console window during development
+    .WriteTo.File("logs/cityinfo.txt", rollingInterval: RollingInterval.Day)    // Also log to a file. And a new log file is created every day.
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
-//builder.Logging.ClearProviders(); 
-//builder.Logging.AddConsole();     //this gives us access to the logging builder with the builder.logging
+//builder.Logging.ClearProviders(); // These 2 lines are commented out because we've using Serilog instead
+//builder.Logging.AddConsole();     // this gives us access to the logging builder with the builder.logging
 
-builder.Host.UseSerilog();
+builder.Host.UseSerilog();  // We tell ASP.NET Core to use Serilog instead of the default logger
 
 // Add services to the container.
 

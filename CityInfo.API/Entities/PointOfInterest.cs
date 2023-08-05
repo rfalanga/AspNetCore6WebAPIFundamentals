@@ -17,7 +17,7 @@ namespace CityInfo.API.Entities
         public string Description { get; set; }
 
 
-        [ForeignKey("CityId")]
+        [ForeignKey("CityId")]  // by convention this is understood to be a foreign key, but Kevin likes to be explicit
         public City? City { get; set; }
         public int CityId { get; set; }
 

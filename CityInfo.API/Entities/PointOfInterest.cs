@@ -14,7 +14,7 @@ namespace CityInfo.API.Entities
         public string Name { get; set; }
 
         [MaxLength(200)]
-        public string Description { get; set; }
+        public string Description { get; set; } // Kevin added this property to demonstration database migrations
 
 
         [ForeignKey("CityId")]  // by convention this is understood to be a foreign key, but Kevin likes to be explicit

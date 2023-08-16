@@ -55,8 +55,6 @@ namespace CityInfo.API.Services
             return (collectionToReturn, paginationMetadata);
         }
 
-
-
         public async Task<City?> GetCityAsync(int cityId, bool includePointsOfInterest)
         {
             if (includePointsOfInterest)

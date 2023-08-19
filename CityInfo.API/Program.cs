@@ -75,7 +75,8 @@ builder.Services.AddDbContext<CityInfoContext>(
 
 builder.Services.AddScoped<ICityInfoRepository, CityInfoRepository>();
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());    // AppDomain.CurrentDomain.GetAssemblies() will scan for profiles to be mapped.
+                                                                            // To assist with this Kevin added the Profiles folder and classes within it.
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(options =>

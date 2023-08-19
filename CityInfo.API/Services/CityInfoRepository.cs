@@ -94,7 +94,7 @@ namespace CityInfo.API.Services
             var city = await GetCityAsync(cityId, false);
             if (city != null)
             {
-                city.PointsOfInterest.Add(pointOfInterest);
+                city.PointsOfInterest.Add(pointOfInterest); // this is not an async call, because it's adding the point of interst to an in-memory object, not a database
             }
         }
 

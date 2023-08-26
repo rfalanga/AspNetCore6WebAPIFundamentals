@@ -44,12 +44,12 @@ namespace CityInfo.API.Services
 
             var totalItemCount = await collection.CountAsync();
 
-            var paginationMetadata = new PaginationMetadata(
+            var paginationMetadata = new PaginationMetadata(    // This is the class Kevin created to hold the X-Pagination data.
                 totalItemCount, pageSize, pageNumber);
 
             var collectionToReturn = await collection.OrderBy(c => c.Name)
-                .Skip(pageSize * (pageNumber - 1))
-                .Take(pageSize)
+                .Skip(pageSize * (pageNumber - 1))  // This ensures that we skip the number of pages, as necessary
+                .Take(pageSize)                     // This restricts the page size
                 .ToListAsync();
 
             return (collectionToReturn, paginationMetadata);

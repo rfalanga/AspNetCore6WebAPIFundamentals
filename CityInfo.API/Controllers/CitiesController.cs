@@ -29,18 +29,18 @@ namespace CityInfo.API.Controllers
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestDto>>> GetCities(
-            string? name, string? searchQuery, int pageNumber = 1, int pageSize = 10)
+            string? name, string? searchQuery, int pageNumber = 1, int pageSize = 10)   // This implements paging, with pageNumber and pageSize
         {
             if (pageSize > maxCitiesPageSize)
             {
                 pageSize = maxCitiesPageSize;
             }
 
-            var (cityEntities, paginationMetadata) = await _cityInfoRepository
+            var (cityEntities, paginationMetadata) = await _cityInfoRepository  // This gets the cities collection and pagination metadata in a tuple
                 .GetCitiesAsync(name, searchQuery, pageNumber, pageSize);
 
             Response.Headers.Add("X-Pagination",
-                JsonSerializer.Serialize(paginationMetadata));
+                JsonSerializer.Serialize(paginationMetadata));  // Note the use of creating the custom X-Pagination header
 
             return Ok(_mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities));       
         }

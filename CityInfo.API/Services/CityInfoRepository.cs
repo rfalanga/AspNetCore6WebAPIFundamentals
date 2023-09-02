@@ -20,6 +20,8 @@ namespace CityInfo.API.Services
 
         public async Task<bool> CityNameMatchesCityId(string? cityName, int cityId)
         {
+            // AnyAsync is an extension method in the System.Data.Entry namespace that is used to asynchronously
+            // determine whether a sequence contains any elements.
             return await _context.Cities.AnyAsync(c => c.Id == cityId && c.Name == cityName);
         }
 

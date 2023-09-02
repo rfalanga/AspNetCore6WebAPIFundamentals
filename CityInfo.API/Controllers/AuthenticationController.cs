@@ -66,22 +66,22 @@ namespace CityInfo.API.Controllers
 
             // Step 2: create a token
             var securityKey = new SymmetricSecurityKey(
-                Encoding.ASCII.GetBytes(_configuration["Authentication:SecretForKey"]));
+                Encoding.ASCII.GetBytes(_configuration["Authentication:SecretForKey"]));    // This will convert it to a binary array (?)
             var signingCredentials = new SigningCredentials(
-                securityKey, SecurityAlgorithms.HmacSha256);
+                securityKey, SecurityAlgorithms.HmacSha256);    // This gets the signing token
              
             var claimsForToken = new List<Claim>();
-            claimsForToken.Add(new Claim("sub", user.UserId.ToString()));
-            claimsForToken.Add(new Claim("given_name", user.FirstName));
+            claimsForToken.Add(new Claim("sub", user.UserId.ToString()));   // Sub is a standardized key for the unique user identifier
+            claimsForToken.Add(new Claim("given_name", user.FirstName));    // given_name and family_name are commonly used for first and last names, respectively
             claimsForToken.Add(new Claim("family_name", user.LastName));
             claimsForToken.Add(new Claim("city", user.City));
              
-            var jwtSecurityToken = new JwtSecurityToken(
+            var jwtSecurityToken = new JwtSecurityToken(        // This takes all the parts to create the actual token
                 _configuration["Authentication:Issuer"],
                 _configuration["Authentication:Audience"],
                 claimsForToken,
-                DateTime.UtcNow,
-                DateTime.UtcNow.AddHours(1),
+                DateTime.UtcNow,                        // This indicates the start of token validity 
+                DateTime.UtcNow.AddHours(1),        // This indicates the end of token validity
                 signingCredentials);
 
             var tokenToReturn = new JwtSecurityTokenHandler()

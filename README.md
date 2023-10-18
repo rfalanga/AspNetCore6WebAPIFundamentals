@@ -6,3 +6,6 @@ Tackles fundamental concerns like CRUD, dependency injection, connecting to a da
 ## Addendum 1/26/2023
 It's been a year since I looked at this course. I've forgotten what's going on, as my code isn't like the instructor's code. I think
 I've forgotten something. 
+
+## Build status
+![CI](https://github.com/rfalanga/AspNetCore6WebAPIFundamentals/workflows/CI/badge.svg)

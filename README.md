@@ -1,6 +1,6 @@
 # ASP.NET Core 6 Web API Fundamentals 
 
-![CI](https://github.com/rfalanga/AspNetCore6WebAPIFundamentals/workflows/CI/badge.svg)
+[![.NET](https://github.com/rfalanga/AspNetCore6WebAPIFundamentals/actions/workflows/dotnet.yml/badge.svg)](https://github.com/rfalanga/AspNetCore6WebAPIFundamentals/actions/workflows/dotnet.yml)
 
 Fully functioning sample code for my ASP.NET Core 6 Web API Fundamentals course at Pluralsight.  
 

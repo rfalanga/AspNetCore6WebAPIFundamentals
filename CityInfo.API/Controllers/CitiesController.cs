@@ -4,6 +4,7 @@ using CityInfo.API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using Asp.Versioning;
 
 namespace CityInfo.API.Controllers
 {

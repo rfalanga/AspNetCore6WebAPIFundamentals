@@ -8,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Reflection;
 using System.Text;
+using Asp.Versioning;
 
 Log.Logger = new LoggerConfiguration()  // This is Serilog.Log
     .MinimumLevel.Debug()
@@ -106,7 +107,8 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddApiVersioning(setupAction =>
 {
     setupAction.AssumeDefaultVersionWhenUnspecified = true;
-    setupAction.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+    //setupAction.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+    setupAction.DefaultApiVersion = new ApiVersion(1, 0);
     setupAction.ReportApiVersions = true;
 });
 
